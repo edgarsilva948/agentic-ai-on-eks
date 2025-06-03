@@ -40,7 +40,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  name   = "ex-${basename(path.cwd)}"
+  name   = var.name != "" ? var.name : "eks-blueprints"
   region = "us-west-2"
 
   vpc_cidr = "10.0.0.0/16"
